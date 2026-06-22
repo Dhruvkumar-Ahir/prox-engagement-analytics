@@ -152,3 +152,20 @@ prox-analytics/
     ├── main.jsx
     └── App.jsx     ← tracker + mock data + Shop/Recipes/Insights (single file)
 ```
+
+## Notes: assumptions, tradeoffs & limitations
+
+**Assumptions**
+- Modeled one cohesive savings journey (browse/search → save → cart → checkout) plus a recipe-to-cart path, rather than every possible flow.
+- The 260 "historical" sessions are simulated with realistic drop-off probabilities so the analytics is meaningful on first load; in production these would be real events.
+- Checkout failure is forced ~28% of the time on purpose, to demonstrate the failure-tracking path.
+
+**Tradeoffs**
+- Built the analytics *into the app* (Insights tab) instead of wiring a real tool like PostHog/Mixpanel, to keep it self-contained and reviewable — but the `track()` function is a one-line swap to a real SDK.
+- Kept everything in one `App.jsx` file for easy review over "proper" file-by-file structure.
+- Events live in React state, so they reset on refresh (no backend/persistence) — a deliberate scope cut for a prototype.
+
+**Limitations**
+- No persistence (refresh clears the live session), no real auth or user identity (session-scoped IDs only), and no real payment/catalog backend.
+- Funnel is single-path; real analysis would handle branching journeys and returning users.
+- Recommendations are derived from simulated data, so they illustrate the *method*, not real Prox findings.
