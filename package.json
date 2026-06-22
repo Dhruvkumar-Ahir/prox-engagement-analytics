@@ -1,0 +1,20 @@
+{
+  "name": "prox-engagement-analytics",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Prox — mobile-first grocery-savings flow with built-in event tracking and an internal analytics dashboard (Track B take-home).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  }
+}
